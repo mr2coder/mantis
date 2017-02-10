@@ -479,7 +479,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  min-height: 50px;
+  min-height: 20px;
 }
 .footer-inner {
   box-sizing: border-box;
