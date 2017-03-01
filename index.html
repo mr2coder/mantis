@@ -261,6 +261,174 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/Ubuntu-切换Python3-5为默认版本/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="zjun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://okw7amp3e.bkt.clouddn.com/head2.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="啊啵呲哆">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="啊啵呲哆" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/01/Ubuntu-切换Python3-5为默认版本/" itemprop="url">
+                  Ubuntu 切换Python3.5为默认版本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T13:09:11+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/01/Ubuntu-切换Python3-5为默认版本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/Ubuntu-切换Python3-5为默认版本/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/01/Ubuntu-切换Python3-5为默认版本/" class="leancloud_visitors" data-flag-title="Ubuntu 切换Python3.5为默认版本">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Ubuntu-切换Python3-5为默认版本"><a href="#Ubuntu-切换Python3-5为默认版本" class="headerlink" title="Ubuntu 切换Python3.5为默认版本"></a>Ubuntu 切换Python3.5为默认版本</h4><p>Ubuntu14.04 系统自带<code>Python2.7</code>，若是输入<code>Python3</code> ，则会调用<code>Python3.4</code>，然而我想用的是<code>Python3.5</code></p>
+<h5 id="1-将Python默认为Python3-5"><a href="#1-将Python默认为Python3-5" class="headerlink" title="1 将Python默认为Python3.5"></a>1 将Python默认为Python3.5</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100  </div><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150  </div><div class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 200</div></pre></td></tr></table></figure>
+<h5 id="2-移除之前的Python3-4并将Python3链接到Python3-5"><a href="#2-移除之前的Python3-4并将Python3链接到Python3-5" class="headerlink" title="2 移除之前的Python3.4并将Python3链接到Python3.5"></a>2 移除之前的Python3.4并将Python3链接到Python3.5</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mv /usr/bin/python3 /usr/bin/python3-old  </div><div class="line">sudo ln -s /usr/bin/python3.5 /usr/bin/python3</div></pre></td></tr></table></figure>
+<h5 id="3-安装新版本pip"><a href="#3-安装新版本pip" class="headerlink" title="3 安装新版本pip"></a>3 安装新版本pip</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget https://bootstrap.pypa.io/get-pip.py  </div><div class="line">sudo python3 get-pip.py  </div><div class="line">sudo pip3 install setuptools --upgrade</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h5><p>如果你想切换回来使用以下命令即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo rm /usr/bin/python3  </div><div class="line">sudo mv /usr/bin/python3-old /usr/bin/python3</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/23/SpeechRecognition-安装使用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -799,7 +967,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -808,7 +976,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -817,7 +985,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
