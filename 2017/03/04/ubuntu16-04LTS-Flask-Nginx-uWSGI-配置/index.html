@@ -92,7 +92,7 @@ Flask 自带的服务器在开发的时候还是能用，但是面临部署的�
 <meta property="og:site_name" content="啊啵呲哆">
 <meta property="og:description" content="ubuntu16.04LTS + Flask + Nginx + uWSGI 配置
 Flask 自带的服务器在开发的时候还是能用，但是面临部署的时候，就需要上Nginx+uWSGI 了，本文主要介绍Nginx服务器托管Flask应用。">
-<meta property="og:updated_time" content="2017-03-04T08:08:29.142Z">
+<meta property="og:updated_time" content="2017-03-04T08:16:07.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16.04LTS + Flask + Nginx + uWSGI 配置">
 <meta name="twitter:description" content="ubuntu16.04LTS + Flask + Nginx + uWSGI 配置
@@ -412,7 +412,7 @@ Flask 自带的服务器在开发的时候还是能用，但是面临部署的�
 <p>总结起来一句话：更高（配置方便）、更快（处理静态文件）、更强（安全）。</p>
 <h5 id="2-开始配置"><a href="#2-开始配置" class="headerlink" title="2 开始配置"></a>2 开始配置</h5><p>为了避免版本与应用之间的冲突造成的依赖错误，建议安装<code>virtualenv</code>，他可以为每个python应用创建独立的开发环境，在开发的时候能免去很多麻烦。</p>
 <h6 id="2-1-virtualenv-安装"><a href="#2-1-virtualenv-安装" class="headerlink" title="2.1 virtualenv 安装"></a>2.1 virtualenv 安装</h6><p>假设你的电脑中已经安装了 python3.5和pip3</p>
-<p>virtualenv 安装命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install virtualenv</div></pre></td></tr></table></figure></p>
+<p>virtualenv 安装命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip3 install virtualenv</div></pre></td></tr></table></figure></p>
 <h6 id="2-2-Nginx安装"><a href="#2-2-Nginx安装" class="headerlink" title="2.2 Nginx安装"></a>2.2 Nginx安装</h6><p>在这里我使用的<code>apt-get</code>安装，所以需要先将<code>Nginx</code>库添加到<code>apt-get source</code>中，命令如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:nginx/stable</div></pre></td></tr></table></figure>
 <p><code>备注</code>：如果<code>add-apt-repository</code>命令在你的Ubuntu版本中不存在的话，你需要安装<code>software-properties-common</code>包，使用命令：<code>sudo apt-get software-properties-common</code></p>
@@ -421,7 +421,7 @@ Flask 自带的服务器在开发的时候还是能用，但是面临部署的�
 <p>然后就是安装并运行Nginx</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nginx</div><div class="line">sudo /etc/init.d/nginx start</div></pre></td></tr></table></figure>
 <h6 id="2-3-uWSGI-安装"><a href="#2-3-uWSGI-安装" class="headerlink" title="2.3 uWSGI 安装"></a>2.3 uWSGI 安装</h6><p>Nginx是一个提供静态文件访问的web服务，然而，它不能直接执行托管Python应用程序，而uWSGI解决了这个问题。让我们先安装uWSGI，稍候再配置Nginx和uWSGI之间的交互。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install uwsgi</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip3 install uwsgi</div></pre></td></tr></table></figure>
 <p>这时候打开浏览器，在地址栏输入<code>localhost</code>应该就能看见Nginx欢迎页了，这里就没有贴图了。</p>
 <h5 id="3-应用创建"><a href="#3-应用创建" class="headerlink" title="3 应用创建"></a>3 应用创建</h5><p>（未完待续。。。）</p>
 
